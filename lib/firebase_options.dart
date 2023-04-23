@@ -50,22 +50,22 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDLA3IrEEudpu8E7JsAYvb_tv6KrKBOtI4',
-    appId: '1:86983543981:android:860890c2180bc26ae80a24',
-    messagingSenderId: '86983543981',
-    projectId: 'my-soil-test-app',
-    databaseURL: 'https://my-soil-test-app-default-rtdb.firebaseio.com',
-    storageBucket: 'my-soil-test-app.appspot.com',
+    apiKey: 'AIzaSyCZUjSEhFTxuN4GtOtwkIJrmywXbDdN-cc',
+    appId: '1:353483962816:android:bd0ce9fc55f4ee2d08b025',
+    messagingSenderId: '353483962816',
+    projectId: 'my-iot-cb9b4',
+    databaseURL: 'https://my-iot-cb9b4-default-rtdb.firebaseio.com',
+    storageBucket: 'my-iot-cb9b4.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyANBU6LL0W16bbg7glnJVPD0VDJig_XwvE',
-    appId: '1:86983543981:ios:f432133ea129a021e80a24',
-    messagingSenderId: '86983543981',
-    projectId: 'my-soil-test-app',
-    databaseURL: 'https://my-soil-test-app-default-rtdb.firebaseio.com',
-    storageBucket: 'my-soil-test-app.appspot.com',
-    iosClientId: '86983543981-mbea162f29o3t6cbg72sp108q3dhijo2.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCH8xupIwm7URXLwRe72EDP2AXT1TVLqN0',
+    appId: '1:353483962816:ios:139f73c20681705908b025',
+    messagingSenderId: '353483962816',
+    projectId: 'my-iot-cb9b4',
+    databaseURL: 'https://my-iot-cb9b4-default-rtdb.firebaseio.com',
+    storageBucket: 'my-iot-cb9b4.appspot.com',
+    iosClientId: '353483962816-uogp5c951aoc8tm4kbdf0jpmoqj09up1.apps.googleusercontent.com',
     iosBundleId: 'com.example.soilTest',
   );
 }

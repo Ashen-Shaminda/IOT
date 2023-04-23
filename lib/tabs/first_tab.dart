@@ -15,7 +15,6 @@ class FirstTab extends StatefulWidget {
 }
 
 class _FirstTabState extends State<FirstTab> {
-
   final Future<FirebaseApp> _fApp = Firebase.initializeApp();
 
   final sensors = new Sensors();
@@ -29,25 +28,6 @@ class _FirstTabState extends State<FirstTab> {
   String lightLevel = '';
   int rainDropLevel = 0;
   double temperatur = 0;
-
-  // showData() {
-  //   dref.child('sensors').once().then((snapshot) {
-  //     String lights = snapshot.value['lights state'].toString();
-  //     print("Lights state : $lights");
-  //     String moisture = snapshot.value['moisture state'].toString();
-  //     print("Moisture state : $moisture");
-  //     String rainDrop = snapshot.value['rain drop value'].toString();
-  //     print("Rain Drop Value : $rainDrop");
-  //     // print(snapshot.value['lights state']);
-  //   });
-  // }
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   databaseReference = dref;
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -105,53 +85,23 @@ class _FirstTabState extends State<FirstTab> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueGrey,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 15,
-                      spreadRadius: 6,
-                      offset: Offset(3, 4),
-                    ),
-                  ],
-                ),
-                width: 500,
-                height: 230,
-                child: CircularPercentIndicator(
-                  header: const Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
-                    child: Text(
-                      'Soil Moisture Level',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 2),
-                    ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blueGrey,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 15,
+                        spreadRadius: 6,
+                        offset: Offset(3, 4),
+                      ),
+                    ],
                   ),
-                  animation: true,
-                  animationDuration: 1000,
-                  radius: 150,
-                  lineWidth: 20,
-                  percent: (moistureLevel / 10),
-                  center: Text(
-                    'Level\n${moistureLevel}',
-                    style: const TextStyle(
-                      fontFamily: 'Kanit-Bold.ttf',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white,
-                      letterSpacing: 2,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  progressColor: Colors.black54,
-                  backgroundColor: Colors.blueGrey.shade700,
-                  circularStrokeCap: CircularStrokeCap.butt,
-                ),
-              ),
+                  width: 500,
+                  height: 230,
+                  child: Container(
+                    child: Text(''),
+                  )),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

@@ -1,78 +1,35 @@
 {
   "project_info": {
-    "project_number": "86983543981",
-    "firebase_url": "https://my-soil-test-app-default-rtdb.firebaseio.com",
-    "project_id": "my-soil-test-app",
-    "storage_bucket": "my-soil-test-app.appspot.com"
+    "project_number": "353483962816",
+    "firebase_url": "https://my-iot-cb9b4-default-rtdb.firebaseio.com",
+    "project_id": "my-iot-cb9b4",
+    "storage_bucket": "my-iot-cb9b4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:86983543981:android:41397709f5c51430e80a24",
-        "android_client_info": {
-          "package_name": "com.asd.firebase"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "86983543981-3h136j20mfmg1f299g562i0s5vtuauri.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDLA3IrEEudpu8E7JsAYvb_tv6KrKBOtI4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "86983543981-3h136j20mfmg1f299g562i0s5vtuauri.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "86983543981-mbea162f29o3t6cbg72sp108q3dhijo2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.soilTest"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:86983543981:android:860890c2180bc26ae80a24",
+        "mobilesdk_app_id": "1:353483962816:android:bd0ce9fc55f4ee2d08b025",
         "android_client_info": {
           "package_name": "com.example.soil_test"
         }
       },
       "oauth_client": [
         {
-          "client_id": "86983543981-3h136j20mfmg1f299g562i0s5vtuauri.apps.googleusercontent.com",
+          "client_id": "353483962816-2fr3n282fgcuo9cagr540c8h5iiq1hgi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLA3IrEEudpu8E7JsAYvb_tv6KrKBOtI4"
+          "current_key": "AIzaSyCZUjSEhFTxuN4GtOtwkIJrmywXbDdN-cc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "86983543981-3h136j20mfmg1f299g562i0s5vtuauri.apps.googleusercontent.com",
+              "client_id": "353483962816-2fr3n282fgcuo9cagr540c8h5iiq1hgi.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "86983543981-mbea162f29o3t6cbg72sp108q3dhijo2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.soilTest"
-              }
             }
           ]
         }

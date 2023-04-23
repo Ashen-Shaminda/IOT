@@ -31,17 +31,17 @@ class _DefaultTabWidgetState extends State<DefaultTabWidget> {
                     color: Colors.black54,
                   ),
                 ),
-                Tab(
-                  child: Text(
-                    'SUGGESTIONS',
-                    style: TextStyle(
-                      letterSpacing: 1,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
+                // Tab(
+                //   child: Text(
+                //     'SUGGESTIONS',
+                //     style: TextStyle(
+                //       letterSpacing: 1,
+                //       color: Colors.black,
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 20,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             Expanded(

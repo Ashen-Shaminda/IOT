@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:86983543981:ios:f432133ea129a021e80a24",
-  "FIREBASE_PROJECT_ID": "my-soil-test-app",
-  "GCM_SENDER_ID": "86983543981"
+  "GOOGLE_APP_ID": "1:353483962816:ios:139f73c20681705908b025",
+  "FIREBASE_PROJECT_ID": "my-iot-cb9b4",
+  "GCM_SENDER_ID": "353483962816"
 }
