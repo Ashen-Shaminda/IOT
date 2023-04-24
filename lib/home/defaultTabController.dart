@@ -47,7 +47,7 @@ class _DefaultTabWidgetState extends State<DefaultTabWidget> {
             Expanded(
               child: TabBarView(children: [
                 FirstTab(),
-                Text('suggestion widgets'),
+                Text('Average Data Read'),
               ]),
             ),
           ],
