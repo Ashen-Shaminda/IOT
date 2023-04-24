@@ -18,7 +18,7 @@ class _DefaultTabWidgetState extends State<DefaultTabWidget> {
       animationDuration: Duration(milliseconds: 600),
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.blueGrey[400],
+        backgroundColor: Colors.black87,
         body: Column(
           children: const[
             TabBar(
@@ -28,20 +28,20 @@ class _DefaultTabWidgetState extends State<DefaultTabWidget> {
                 Tab(
                   icon: Icon(
                     Icons.home,
-                    color: Colors.black54,
+                    color: Colors.white,
                   ),
                 ),
-                // Tab(
-                //   child: Text(
-                //     'SUGGESTIONS',
-                //     style: TextStyle(
-                //       letterSpacing: 1,
-                //       color: Colors.black,
-                //       fontWeight: FontWeight.bold,
-                //       fontSize: 20,
-                //     ),
-                //   ),
-                // ),
+                Tab(
+                  child: Text(
+                    'AVERAGE DATA',
+                    style: TextStyle(
+                      letterSpacing: 1,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ],
             ),
             Expanded(

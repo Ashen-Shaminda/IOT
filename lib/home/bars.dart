@@ -15,20 +15,20 @@ class Bars extends StatelessWidget {
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(
-              color: Colors.blueGrey[400],
+              color: Colors.black87,
             ),
           ),
           titleTextStyle:
               const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          backgroundColor: Colors.blueGrey[900],
+          backgroundColor: Colors.black87,
           title: const Align(
             alignment: Alignment.center,
             child: Padding(
               padding: EdgeInsets.only(right: 20),
               child: Text(
-                'Soil Test',
+                'Garbage Monitor',
                 style: TextStyle(
-                  letterSpacing: 2,
+                  letterSpacing: 3,
                 ),
               ),
             ),

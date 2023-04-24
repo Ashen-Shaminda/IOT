@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:soil_test/sensors.dart';
-import 'package:soil_test/test_tab.dart';
+
+// import 'package:flutter/rendering.dart';
+// import 'package:percent_indicator/percent_indicator.dart';\
+// import 'package:firebase_database/ui/firebase_animated_list.dart';
+// import 'package:soil_test/test_tab.dart';
 
 class FirstTab extends StatefulWidget {
   const FirstTab({Key? key}) : super(key: key);
@@ -19,15 +20,11 @@ class _FirstTabState extends State<FirstTab> {
 
   final sensors = new Sensors();
 
-  String lightState = '0';
-  String moisture = '0';
+  String CH4gas = '0';
+  String humidity = '0';
   String temperature = '0';
-  String rainDrop = '0';
-
-  int moistureLevel = 0;
-  String lightLevel = '';
-  int rainDropLevel = 0;
-  double temperatur = 0;
+  String CO2gas = '0';
+  String pressure = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +42,9 @@ class _FirstTabState extends State<FirstTab> {
             } else if (snapshot.hasData) {
               return content();
             } else {
-              return CircularProgressIndicator();
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
           }),
     );
@@ -53,25 +52,15 @@ class _FirstTabState extends State<FirstTab> {
 
   Widget content() {
     DatabaseReference _testRef =
-        FirebaseDatabase.instance.reference().child('sensors');
+        FirebaseDatabase.instance.reference().child('Sensors');
     // listen to firebase realtime database value.
     _testRef.onValue.listen((event) {
       setState(() {
-        lightState = event.snapshot.value['lights state'].toString();
-        moisture = event.snapshot.value['moisture state'].toString();
-        temperature = event.snapshot.value['temperature state'].toString();
-        rainDrop = event.snapshot.value['rain drop value'].toString();
-
-        // moisture state
-        // https://www.geeksforgeeks.org/soil-moisture-measurement-using-arduino-and-soil-moisture-sensor/
-        moistureLevel = sensors.moisture(int.parse(moisture));
-
-        // rain drop level
-        rainDropLevel = sensors.rainDrop(int.parse(rainDrop));
-
-        // temperature level
-
-        //light state
+        CH4gas = event.snapshot.value['CH4gas'].toString();
+        CO2gas = event.snapshot.value['CO2gas'].toString();
+        humidity = event.snapshot.value['humidity'].toString();
+        temperature = event.snapshot.value['temperature'].toString();
+        pressure = event.snapshot.value['pressure'].toString();
       });
     });
     return SafeArea(
@@ -85,162 +74,120 @@ class _FirstTabState extends State<FirstTab> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blueGrey,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 15,
-                        spreadRadius: 6,
-                        offset: Offset(3, 4),
-                      ),
-                    ],
-                  ),
-                  width: 500,
-                  height: 230,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                width: 500,
+                height: 230,
+                child: Center(
                   child: Container(
-                    child: Text(''),
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueGrey,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 15,
-                      spreadRadius: 6,
-                      offset: Offset(3, 4),
-                    ),
-                  ],
-                ),
-                width: 500,
-                height: 230,
-                child: CircularPercentIndicator(
-                  header: const Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
                     child: Text(
-                      'Soil Temperature Level',
+                      'CH4 Gas Concentration (ppm)\n\n$CH4gas',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 2),
-                    ),
-                  ),
-                  animation: true,
-                  animationDuration: 1000,
-                  radius: 150,
-                  lineWidth: 20,
-                  percent: 0.7,
-                  center: Text(
-                    '$temperature %',
-                    style: const TextStyle(
-                        fontFamily: 'Kanit-Bold.ttf',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
-                        letterSpacing: 2),
-                  ),
-                  progressColor: Colors.black54,
-                  backgroundColor: Colors.blueGrey.shade700,
-                  circularStrokeCap: CircularStrokeCap.butt,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueGrey,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 15,
-                      spreadRadius: 6,
-                      offset: Offset(3, 4),
-                    ),
-                  ],
-                ),
-                width: 500,
-                height: 230,
-                child: CircularPercentIndicator(
-                  header: const Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
-                    child: Text(
-                      'Rain Drop Level',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 2),
-                    ),
-                  ),
-                  animation: true,
-                  animationDuration: 1000,
-                  radius: 150,
-                  lineWidth: 20,
-                  percent: (rainDropLevel / 10),
-                  center: Text(
-                    'Level\n${rainDropLevel}',
-                    style: const TextStyle(
-                        fontFamily: 'Kanit-Bold.ttf',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
-                        letterSpacing: 2),
-                    textAlign: TextAlign.center,
-                  ),
-                  progressColor: Colors.black54,
-                  backgroundColor: Colors.blueGrey.shade700,
-                  circularStrokeCap: CircularStrokeCap.butt,
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueGrey,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 15,
-                      spreadRadius: 6,
-                      offset: Offset(3, 4),
-                    ),
-                  ],
-                ),
-                width: 500,
-                height: 230,
-                child: Column(
-                  children: [
-                    Text(
-                      'Light Intensity',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
-                        letterSpacing: 2,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
                       ),
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.4,
                     ),
-                    // Container(
-                    //   child: Icon(
-                    //     Icons.light_mode,
-                    //     size: 100,
-                    //     color: Colors.white,
-                    //   ),
-                    //   color: Colors.teal,
-                    //   height: 200,
-                    //   width: 350,
-                    // ),
-                  ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                width: 500,
+                height: 230,
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      'CHO Gas Concentration (ppm)\n\n$CO2gas',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.4,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                width: 500,
+                height: 230,
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      'Temperature\n\n$temperature C',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.4,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                width: 500,
+                height: 230,
+                child: Center(
+                  child: Container(
+                    child: Text(
+                      'Humidity\n\n$humidity%',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.4,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                width: 500,
+                height: 230,
+                child: Center(
+                  child: Container(
+                    child: Text(
+                      'Pressure\n\n$pressure',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.4,
+                    ),
+                  ),
                 ),
               ),
             ),
