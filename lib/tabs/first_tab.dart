@@ -55,6 +55,8 @@ class _FirstTabState extends State<FirstTab> {
         FirebaseDatabase.instance.reference().child('Sensors');
     // listen to firebase realtime database value.
     _testRef.onValue.listen((event) {
+      if (!mounted) return;
+
       setState(() {
         CH4gas = event.snapshot.value['CH4gas'].toString();
         CO2gas = event.snapshot.value['CO2gas'].toString();
@@ -63,6 +65,12 @@ class _FirstTabState extends State<FirstTab> {
         pressure = event.snapshot.value['pressure'].toString();
       });
     });
+    @override
+    void dispose() {
+      // TODO: implement dispose
+      super.dispose();
+    }
+
     return SafeArea(
       child: Scrollbar(
         thickness: 10,
